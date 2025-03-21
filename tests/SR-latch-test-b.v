@@ -1,8 +1,8 @@
-module test_sr_latch_b;
+module test_sr_latch;
     reg S, R;
     wire Q, Qbar;
 
-    sr_latch_b latch (
+    sr_latch latch (
         .S(S),
         .R(R),
         .Q(Q),

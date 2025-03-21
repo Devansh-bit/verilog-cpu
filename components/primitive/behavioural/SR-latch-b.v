@@ -1,7 +1,11 @@
-module sr_latch_b (
+module sr_latch (
     input wire S, R,
     output reg Q, Qbar
 );
+    initial begin
+        Q = 0;
+        Qbar = 1;
+    end
     always @ (S or R)
     begin
         if (S == 1 && R == 0)
