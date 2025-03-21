@@ -1,0 +1,120 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000022a287d7060 .scope module, "test_dff_g" "test_dff_g" 2 1;
+ .timescale 0 0;
+v0000022a28824a70_0 .var "D", 0 0;
+v0000022a288250b0_0 .net "Q", 0 0, L_0000022a287c65d0;  1 drivers
+v0000022a288255b0_0 .net "Qbar", 0 0, L_0000022a288258a0;  1 drivers
+v0000022a28824f70_0 .var "clk", 0 0;
+S_0000022a287d71f0 .scope module, "dff1" "dff_g" 2 4, 3 1 0, S_0000022a287d7060;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "D";
+    .port_info 1 /INPUT 1 "clk";
+    .port_info 2 /OUTPUT 1 "Q";
+    .port_info 3 /OUTPUT 1 "Qbar";
+L_0000022a287c6090 .functor NOT 1, v0000022a28824f70_0, C4<0>, C4<0>, C4<0>;
+v0000022a28824930_0 .net "D", 0 0, v0000022a28824a70_0;  1 drivers
+v0000022a28825150_0 .net "Q", 0 0, L_0000022a287c65d0;  alias, 1 drivers
+v0000022a28824890_0 .net "Q1", 0 0, L_0000022a287c61e0;  1 drivers
+v0000022a28824c50_0 .net "Q1bar", 0 0, L_0000022a287c6640;  1 drivers
+v0000022a28824ed0_0 .net "Qbar", 0 0, L_0000022a288258a0;  alias, 1 drivers
+v0000022a28824e30_0 .net "clk", 0 0, v0000022a28824f70_0;  1 drivers
+v0000022a288249d0_0 .net "clkbar", 0 0, L_0000022a287c6090;  1 drivers
+E_0000022a287c53e0 .event anyedge, v0000022a28824d90_0, v0000022a28824b10_0, v0000022a288253d0_0, v0000022a287a2f20_0;
+S_0000022a287a29c0 .scope module, "dl1" "d_latch_g" 3 7, 4 1 0, S_0000022a287d71f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "D";
+    .port_info 1 /INPUT 1 "En";
+    .port_info 2 /OUTPUT 1 "Q";
+    .port_info 3 /OUTPUT 1 "Qbar";
+L_0000022a287c64f0 .functor NOT 1, v0000022a28824a70_0, C4<0>, C4<0>, C4<0>;
+L_0000022a287c6100 .functor AND 1, L_0000022a287c64f0, L_0000022a287c6090, C4<1>, C4<1>;
+L_0000022a287c63a0 .functor AND 1, v0000022a28824a70_0, L_0000022a287c6090, C4<1>, C4<1>;
+L_0000022a287c61e0 .functor NOR 1, L_0000022a287c6100, L_0000022a287c6640, C4<0>, C4<0>;
+L_0000022a287c6640 .functor NOR 1, L_0000022a287c63a0, L_0000022a287c61e0, C4<0>, C4<0>;
+v0000022a287a2f20_0 .net "D", 0 0, v0000022a28824a70_0;  alias, 1 drivers
+v0000022a287c7740_0 .net "En", 0 0, L_0000022a287c6090;  alias, 1 drivers
+v0000022a28824b10_0 .net "Q", 0 0, L_0000022a287c61e0;  alias, 1 drivers
+v0000022a28825650_0 .net "Qbar", 0 0, L_0000022a287c6640;  alias, 1 drivers
+v0000022a28825330_0 .net "R", 0 0, L_0000022a287c63a0;  1 drivers
+v0000022a28825010_0 .net "S", 0 0, L_0000022a287c6100;  1 drivers
+v0000022a28825470_0 .net "t1", 0 0, L_0000022a287c64f0;  1 drivers
+S_0000022a287d4bb0 .scope module, "dl2" "d_latch_g" 3 8, 4 1 0, S_0000022a287d71f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "D";
+    .port_info 1 /INPUT 1 "En";
+    .port_info 2 /OUTPUT 1 "Q";
+    .port_info 3 /OUTPUT 1 "Qbar";
+L_0000022a287c6170 .functor NOT 1, L_0000022a287c61e0, C4<0>, C4<0>, C4<0>;
+L_0000022a287c6330 .functor AND 1, L_0000022a287c6170, v0000022a28824f70_0, C4<1>, C4<1>;
+L_0000022a287c6560 .functor AND 1, L_0000022a287c61e0, v0000022a28824f70_0, C4<1>, C4<1>;
+L_0000022a287c65d0 .functor NOR 1, L_0000022a287c6330, L_0000022a288258a0, C4<0>, C4<0>;
+L_0000022a288258a0 .functor NOR 1, L_0000022a287c6560, L_0000022a287c65d0, C4<0>, C4<0>;
+v0000022a288256f0_0 .net "D", 0 0, L_0000022a287c61e0;  alias, 1 drivers
+v0000022a288253d0_0 .net "En", 0 0, v0000022a28824f70_0;  alias, 1 drivers
+v0000022a28824d90_0 .net "Q", 0 0, L_0000022a287c65d0;  alias, 1 drivers
+v0000022a28825510_0 .net "Qbar", 0 0, L_0000022a288258a0;  alias, 1 drivers
+v0000022a28824bb0_0 .net "R", 0 0, L_0000022a287c6560;  1 drivers
+v0000022a28824cf0_0 .net "S", 0 0, L_0000022a287c6330;  1 drivers
+v0000022a28825790_0 .net "t1", 0 0, L_0000022a287c6170;  1 drivers
+    .scope S_0000022a287d71f0;
+T_0 ;
+    %wait E_0000022a287c53e0;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0000022a287d7060;
+T_1 ;
+    %vpi_call 2 8 "$monitor", "D=%b, clk=%b, Q=%b", v0000022a28824a70_0, v0000022a28824f70_0, v0000022a288250b0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824a70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022a28824a70_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824a70_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022a28824f70_0, 0, 1;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    ".\tests\dff-test-g.v";
+    ".\components\primitive\gate-level\dff-g.v";
+    ".\components\primitive\gate-level\D-latch-g.v";

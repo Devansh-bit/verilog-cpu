@@ -2,7 +2,7 @@ module test_d_latch_g;
     reg D, CLK;
     wire Q, Qbar;
 
-    d_latch_g latch (
+    d_latch_g dlg (
         .D(D),
         .En(CLK),
         .Q(Q),
