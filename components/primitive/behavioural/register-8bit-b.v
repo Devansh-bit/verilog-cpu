@@ -1,7 +1,7 @@
 module reg_8bit (
+    output wire [7:0] Q,
     input wire [7:0] Data,
-    input wire clk, load, enable,
-    output wire [7:0] Q
+    input wire clk, load, enable
 );
     reg [7:0] Q_reg;
     initial begin
