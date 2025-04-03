@@ -1,11 +1,11 @@
-module reg_8bit (
-    output wire [7:0] Q,
+module reg_4bit (
+    output wire [3:0] Q, display,
     input wire clk, load, output_enable,
-    input wire [7:0] Data
+    input wire [3:0] Data
 );
-    reg [7:0] Q_reg;
+    reg [3:0] Q_reg;
     initial begin
-        Q_reg <= 8'b0;
+        Q_reg <= 4'bz;
     end
     always @(posedge clk) begin
         if (load) begin
@@ -15,5 +15,6 @@ module reg_8bit (
             Q_reg <= Q_reg;
         end
     end
-    assign Q = (output_enable) ? Q_reg : 8'bz;
+    assign display = Q_reg;
+    assign Q = (output_enable) ? Q_reg : 4'bz;
 endmodule

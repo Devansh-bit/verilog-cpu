@@ -1,5 +1,5 @@
-module reg_8bit (
-    output wire [7:0] Q,
+module cpu_register (
+    output wire [7:0] Q_bus, Q,
     input wire clk, load, output_enable,
     input wire [7:0] Data
 );
@@ -15,5 +15,6 @@ module reg_8bit (
             Q_reg <= Q_reg;
         end
     end
-    assign Q = (output_enable) ? Q_reg : 8'bz;
+    assign Q_bus = (output_enable) ? Q_reg : 8'bz;
+    assign Q = Q_reg;
 endmodule
