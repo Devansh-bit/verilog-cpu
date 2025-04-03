@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1742735140">
-  <File Type="REPORTS-TCL" Name="ALU_reports.tcl"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1743683507">
+  <File Type="REPORTS-TCL" Name="controller_reports.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="controller_power_summary_routed.pb"/>
-  <File Type="BITSTR-MMI" Name="ALU.mmi"/>
+  <File Type="BITSTR-MMI" Name="controller.mmi"/>
   <File Type="OPT-DRC" Name="controller_drc_opted.rpt"/>
-  <File Type="BG-DRC" Name="ALU.drc"/>
+  <File Type="BG-DRC" Name="controller.drc"/>
   <File Type="ROUTE-STATUS-PB" Name="controller_route_status.pb"/>
-  <File Type="BG-BGN" Name="ALU.bgn"/>
+  <File Type="BG-BGN" Name="controller.bgn"/>
   <File Type="PLACE-UTIL" Name="controller_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="controller_utilization_placed.pb"/>
   <File Type="PLACE-IO" Name="controller_io_placed.rpt"/>
-  <File Type="BG-BIN" Name="ALU.bin"/>
+  <File Type="BG-BIN" Name="controller.bin"/>
   <File Type="PLACE-CTRL" Name="controller_control_sets_placed.rpt"/>
   <File Type="ROUTE-PWR-RPX" Name="controller_power_routed.rpx"/>
-  <File Type="ROUTE-DCP" Name="ALU_routed.dcp"/>
-  <File Type="BITSTR-MSK" Name="ALU.msk"/>
-  <File Type="BITSTR-RBT" Name="ALU.rbt"/>
+  <File Type="BITSTR-MSK" Name="controller.msk"/>
+  <File Type="BITSTR-RBT" Name="controller.rbt"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="controller_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-RPX" Name="controller_timing_summary_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="controller_route_status.rpt"/>
-  <File Type="PA-TCL" Name="ALU.tcl"/>
+  <File Type="PA-TCL" Name="controller.tcl"/>
   <File Type="ROUTE-PWR" Name="controller_power_routed.rpt"/>
   <File Type="ROUTE-DRC" Name="controller_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-RPX" Name="controller_drc_routed.rpx"/>
   <File Type="ROUTE-DRC-PB" Name="controller_drc_routed.pb"/>
-  <File Type="BITSTR-SYSDEF" Name="ALU.sysdef"/>
+  <File Type="BITSTR-SYSDEF" Name="controller.sysdef"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="controller_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="controller_methodology_drc_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="ALU.ltx"/>
+  <File Type="BITSTR-LTX" Name="controller.ltx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="controller_methodology_drc_routed.pb"/>
   <File Type="ROUTE-SIMILARITY" Name="controller_incremental_reuse_routed.rpt"/>
-  <File Type="RDI-RDI" Name="ALU.vdi"/>
+  <File Type="RDI-RDI" Name="controller.vdi"/>
   <File Type="ROUTE-CLK" Name="controller_clock_utilization_routed.rpt"/>
+  <File Type="PA-DCP" Name="controller.dcp"/>
   <File Type="ROUTE-BUS-SKEW" Name="controller_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="controller_bus_skew_routed.rpx"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="controller_bus_skew_routed.pb"/>
@@ -41,45 +41,81 @@
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="controller_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="controller_bus_skew_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="controller_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BG-BIT" Name="ALU.bit"/>
+  <File Type="BG-BIT" Name="controller.bit"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="controller_bus_skew_postroute_physopted.pb"/>
-  <File Type="BITSTR-NKY" Name="ALU.nky"/>
-  <File Type="BITSTR-BMM" Name="ALU_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="controller.nky"/>
+  <File Type="BITSTR-BMM" Name="controller_bd.bmm"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="OPT-HWDEF" Name="ALU.hwdef"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="ALU_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="ALU_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="ALU_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMING-PB" Name="ALU_timing_summary_routed.pb"/>
-  <File Type="OPT-DCP" Name="ALU_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="ALU_placed.dcp"/>
-  <File Type="PWROPT-DCP" Name="ALU_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="ALU_postplace_pwropt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="ALU_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="ALU_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="ALU_postroute_physopt_bb.dcp"/>
-  <File Type="PDI-FILE" Name="ALU.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="ALU_boot.pdi"/>
-  <File Type="PL-PDI-FILE" Name="ALU_pld.pdi"/>
-  <File Type="RCFI_FILE" Name="ALU.rcfi"/>
-  <File Type="CFI_FILE" Name="ALU.cfi"/>
-  <File Type="RNPI_FILE" Name="ALU.rnpi"/>
-  <File Type="NPI_FILE" Name="ALU.npi"/>
-  <File Type="RBD_FILE" Name="ALU.rbd"/>
-  <File Type="ROUTE-RQS" Name="ALU_routed.rqs"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="ALU_postroute_physopted.rqs"/>
+  <File Type="OPT-HWDEF" Name="controller.hwdef"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="controller_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DCP" Name="controller_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="controller_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="controller_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMING-PB" Name="controller_timing_summary_routed.pb"/>
+  <File Type="OPT-DCP" Name="controller_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="controller_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="controller_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="controller_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="controller_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="controller_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="controller_postroute_physopt_bb.dcp"/>
+  <File Type="PDI-FILE" Name="controller.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="controller_boot.pdi"/>
+  <File Type="PL-PDI-FILE" Name="controller_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="controller.rcfi"/>
+  <File Type="CFI_FILE" Name="controller.cfi"/>
+  <File Type="RNPI_FILE" Name="controller.rnpi"/>
+  <File Type="NPI_FILE" Name="controller.npi"/>
+  <File Type="RBD_FILE" Name="controller.rbd"/>
+  <File Type="ROUTE-RQS" Name="controller_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="controller_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/components/design/ALU.v">
+    <File Path="$PPRDIR/components/design/cpu-register.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/components/primitive/gate-level/D-latch-g.v">
+    <File Path="$PPRDIR/components/design/instruction-register.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/components/design/program-counter.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/components/design/ram-16-word-b.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/components/primitive/behavioural/register-4bit-b.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/components/design/controller.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/components/design/ALU.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -88,14 +124,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/components/primitive/behavioural/SR-latch-b.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/components/primitive/gate-level/SR-latch-g.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -119,7 +147,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/components/primitive/gate-level/dff-g.v">
+    <File Path="$PPRDIR/components/primitive/behavioural/jkff-b.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -135,14 +163,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/components/primitive/gate-level/ram-1024-word-g.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/components/primitive/behavioural/register-8bit-b.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -151,7 +171,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/components/primitive/gate-level/register-8bit-g.v">
+    <File Path="$PPRDIR/components/design/simple_ALU.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -161,7 +181,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="ALU"/>
+      <Option Name="TopModule" Val="controller"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
@@ -172,6 +192,14 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/ALU.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>

@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../components/design/cpu-register.v" \
+"../../../../components/design/instruction-register.v" \
+"../../../../components/design/program-counter.v" \
+"../../../../components/design/ram-16-word-b.v" \
+"../../../../components/primitive/behavioural/register-4bit-b.v" \
+"../../../../components/primitive/behavioural/register-8bit-b.v" \
+"../../../../components/design/simple-ALU.v" \
+"../../../../components/design/controller.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

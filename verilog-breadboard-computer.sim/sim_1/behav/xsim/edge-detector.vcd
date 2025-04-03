@@ -1,0 +1,40 @@
+$date
+   Tue Mar 18 19:30:42 2025
+$end
+
+$version
+  2024.2.0
+  $dumpfile ("edge-detector.vcd") 
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module test_edge_detector_g $end
+$var wire 1 ! rising $end
+$upscope $end
+$enddefinitions $end
+
+#0
+$dumpvars
+0!
+$end
+
+#10000
+1!
+
+#11000
+0!
+
+#30000
+1!
+
+#31000
+0!
+
+#70000
+1!
+
+#71000
+0!

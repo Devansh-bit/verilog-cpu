@@ -1,0 +1,17 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/design/cpu-register.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/design/instruction-register.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module instruction_register
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/design/program-counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module program_counter
+INFO: [VRFC 10-311] analyzing module test_program_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/design/ram-16-word-b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ram_16_word
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/register-4bit-b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reg_4bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/register-8bit-b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reg_8bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/design/simple-ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module simple_ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Engineering/Projects/verilog-breadboard-computer/components/design/controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller

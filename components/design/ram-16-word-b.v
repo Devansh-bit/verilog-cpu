@@ -13,8 +13,11 @@ module ram_16_word (
     // program for simulation
     initial begin
         Q_reg[0] = 8'b00011110; // LDA 14
-        Q_reg[1] = 8'b11110000; // HLT
-        Q_reg[14] = 8'b00001100; // Value 12 at add 14
+        Q_reg[1] = 8'b00111101; // SUB 13
+        Q_reg[2] = 8'b01001100; // OUT 12
+        Q_reg[3] = 8'b11110000; // HLT
+        Q_reg[13] = 8'b00001101; // Value 13 at add 13
+        Q_reg[14] = 8'b00001110; // Value 14 at add 14
     end
 
     always @(posedge CLK) begin

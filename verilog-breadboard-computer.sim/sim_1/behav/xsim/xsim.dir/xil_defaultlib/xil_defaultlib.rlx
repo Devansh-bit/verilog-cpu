@@ -1,0 +1,19 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+C:/Engineering/Projects/verilog-breadboard-computer/components/design/controller.v,1743698290,verilog,,,,controller,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/design/cpu-register.v,1743529384,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/design/instruction-register.v,,cpu_register,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/design/instruction-register.v,1743529422,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/design/program-counter.v,,instruction_register,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/design/program-counter.v,1743526749,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/design/ram-16-word-b.v,,program_counter;test_program_counter,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/design/ram-16-word-b.v,1743698392,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/register-4bit-b.v,,ram_16_word,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/design/simple-ALU.v,1743684743,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/design/controller.v,,simple_ALU,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/SR-latch-b.v,1742260992,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/tests/SR-latch-test-b.v,,sr_latch_b,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/d-latch-b.v,1742528839,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/tests/d-latch-test-g.v,,d_latch,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/register-4bit-b.v,1743529935,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/register-8bit-b.v,,reg_4bit,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/register-8bit-b.v,1743529931,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/design/simple-ALU.v,,reg_8bit,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/gate-level/d-latch-g.v,1742529074,verilog,,C:/Engineering/Projects/verilog-breadboard-computer/components/primitive/behavioural/d-latch-b.v,,d_latch_g,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/tests/SR-latch-test-b.v,1742261266,verilog,,,,test_sr_latch_b,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/tests/d-latch-test-g.v,1742528801,verilog,,,,test_d_latch_g,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/tests/register-8bit-test-b.v,1742651580,verilog,,,,register_8bit_test_b,,,,,,,,
+C:/Engineering/Projects/verilog-breadboard-computer/verilog-breadboard-computer.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,

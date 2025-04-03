@@ -16,15 +16,7 @@ module controller;
     #5 clk_reg = ~clk_reg; // 8 ns clock period
     end
     assign clk = (hlt) ? 0 : clk_reg;
-    assign controller_clk = (hlt) ? 0 : ~clk_reg; // clock for the controller
-    // always begin
-    //     if (starting) begin
-    //         clk_reg = 0;
-    //     end
-    //     else begin]
-    //         #5 clk_reg = ~clk_reg;
-    //     end
-    // end
+    assign controller_clk = (hlt) ? 0 : ~clk_reg;
 
     wire [7:0] bus;
 
@@ -39,7 +31,7 @@ module controller;
         .PC_in(bus[3:0])
     );
 
-    reg MAROe, MARIe;
+    reg MARIe;
     wire [3:0] MARo;
     reg_4bit mar (
         .Q(MARo),
@@ -81,13 +73,36 @@ module controller;
         .output_enable(AOe), 
         .Data(bus)
     );
+
+    reg BOe, BIe;
+    wire [7:0] Bo;
+    cpu_register B (
+        .Q_bus(bus),
+        .Q(Bo),
+        .clk(clk),
+        .load(BIe),
+        .output_enable(BOe), 
+        .Data(bus)
+    );
     
-    // ALU_simple alu (
-    //     .Y(data_out),
-    //     .A(data_in),
-    //     .B(data_in),
-    //     .SUB(sub)
-    // );
+    reg sub, ALUOe;
+    simple_ALU alu (
+        .Y(bus),
+        .A(Ao),
+        .B(Bo),
+        .SUB(sub),
+        .enable(ALUOe)
+    );
+
+    wire [7:0] leds;
+    reg ORIe;
+    reg_8bit output_register (
+        .Q(leds),
+        .clk(clk),
+        .load(ORIe),
+        .output_enable(1'b1),
+        .Data(bus)
+    );
     
     reg [3:0] state, next_state;
     // cpu internal state synced with inverted clock
@@ -98,15 +113,24 @@ module controller;
             0: begin
                 state <= 0;
 
+                // default values
+                PCIe <= 0;
+                PCe <= 0;
+                RIe <= 0;
                 ROe <= 0;
-                RIe <= 0; 
                 IRIe <= 0;
                 IROe <= 0;
-                PCe <= 0;
-                PCIe <= 0;
+                AOe <= 0;
+                AIe <= 0;
+                BOe <= 0;
+                BIe <= 0;
+                sub <= 0;
+                ALUOe <= 0;
+                ORIe <= 0;
 
-                PCOe <= 1; // output PC
-                MARIe <= 1; // load MAR with PC
+                // Program Counter -> Memory Address Register
+                PCOe <= 1; 
+                MARIe <= 1; 
 
                 next_state <= 1; // next state
             end
@@ -115,12 +139,13 @@ module controller;
             1: begin
                 state <= 1;
 
-                PCOe <= 0; // disable PC output
-                MARIe <= 0; // disable MAR load
+                PCOe <= 0;
+                MARIe <= 0;
 
-                ROe <= 1; // read from RAM
-                IRIe <= 1; // load instruction register with data from RAM
-                PCe <= 1; // increment PC
+                // RAM to Instruction Register
+                ROe <= 1; 
+                IRIe <= 1; 
+                PCe <= 1; // increment program counter
 
                 next_state <= 2; // next state
             end
@@ -129,27 +154,49 @@ module controller;
             2: begin
                 state <= 2;
 
-                MAROe <= 0; // disable MAR output
-                ROe <= 0; // disable RAM read
-                IRIe <= 0; // disable instruction register load
-                PCe <= 0; // disable PC increment
+                ROe <= 0;
+                IRIe <= 0;
+                PCe <= 0;
 
                 // Decode instruction register into different instructions
                 // 1: `LDA <Address>` Load A register with data from RAM at given address
                 // 2: `ADD <Address>` Add data from RAM at given address to A register and store in A register
                 // 3: `SUB <Address>` Subtract data from RAM at given address to A register and store in A register
                 // 4: `OUT <Address>` Output data from A register to RAM at given address
+                // 5: `JMP <Address>` Jump to given address in RAM
                 // 15: `HLT` Halt the CPU 
                 // 0: `NOP` No operation
                 case (IRIo)
                     4'b0001: begin // LDA
-                        IROe <= 1; // output instruction register address
-                        MARIe <= 1; // load MAR with address from instruction register
+                        // Instruction register to Memory Address Register
+                        IROe <= 1; 
+                        MARIe <= 1; 
+                        next_state <= 3; // next state
+                    end
+
+                    4'b0010: begin //ADD
+                        // Instruction register to Memory Address Register
+                        IROe <= 1; 
+                        MARIe <= 1; 
+                        next_state <= 3; // next state
+                    end
+
+                    4'b0011: begin // SUB
+                        // Instruction register to Memory Address Register
+                        IROe <= 1; 
+                        MARIe <= 1; 
+                        next_state <= 3; // next state
+                    end
+
+                    4'b0100: begin // OUT
+                        // Instruction register to Memory Address Register
+                        IROe <= 1; 
+                        MARIe <= 1; 
                         next_state <= 3; // next state
                     end
 
                     4'b1111: begin // HLT
-                        hlt <= 1; // halt the CPU
+                        hlt <= 1; 
                     end
                     default: begin // NOP
                         next_state = 0;
@@ -161,12 +208,40 @@ module controller;
                 state <= 3;
                 case (IRIo)
                     4'b0001: begin // LDA
-                        IROe <= 0; // disable instruction register output
-                        MARIe <= 0; // disable MAR load
+                        IROe <= 0; 
+                        MARIe <= 0; 
+                        // RAM to A register
+                        ROe <= 1; 
+                        AIe <= 1; 
+                        next_state <= 4; // next state
+                    end
 
-                        MAROe <= 1; // output MAR
-                        ROe <= 1; // read from RAM
-                        AIe <= 1; // load A register with data from RAM
+                    4'b0010: begin // ADD
+                        IROe <= 0; 
+                        MARIe <= 0; 
+                        // RAM to B register
+                        ROe <= 1; 
+                        BIe <= 1;
+                        sub <= 0; // addition
+                        next_state <= 4; // next state
+                    end
+
+                    4'b0011: begin // SUB
+                        IROe <= 0; 
+                        MARIe <= 0; 
+                        // RAM to B register
+                        ROe <= 1; 
+                        BIe <= 1;
+                        sub <= 1; // subtraction
+                        next_state <= 4; // next state
+                    end
+
+                    4'b0100: begin // OUT
+                        IROe <= 0;
+                        MARIe <= 0;
+                        // A register to RAM
+                        AOe <= 1;
+                        RIe <= 1;
                         next_state <= 4; // next state
                     end
 
@@ -184,12 +259,40 @@ module controller;
                 state <= 4;
                 case (IRIo)
                     4'b0001: begin // LDA 
-                        MAROe <= 0; // disable MAR output
-                        ROe <= 0; // disable RAM read
-                        AIe <= 0; // disable A register load
+
+                        // Reset for next instruction
+                        ROe <= 0; 
+                        AIe <= 0; 
                         next_state <= 0; // next state
                     end
 
+                    4'b0010: begin // ADD
+                        ROe <= 0;
+                        BIe <= 0;
+
+                        // ALU to A register
+                        ALUOe <= 1;
+                        AIe <= 1;
+                        next_state <= 5; // next state
+                    end
+
+                    4'b0011: begin // SUB
+                        ROe <= 0;
+                        BIe <= 0;
+
+                        // ALU to A register
+                        ALUOe <= 1;
+                        AIe <= 1;
+                        next_state <= 5; // next state
+                    end
+
+                    4'b0100: begin // OUT
+                        AOe <= 0;
+                        RIe <= 0;
+
+                        // Reset for next instruction
+                        next_state <= 0; // next state
+                    end
 
                     4'b1111: begin // HLT
                         hlt <= 1; // halt the CPU
@@ -200,9 +303,36 @@ module controller;
                 endcase
             end
 
+            5: begin
+                state <= 5;
+                case (IRIo) 
+                    4'b0010: begin // ADD
+
+                        // Reset for next instruction
+                        ALUOe <= 0;
+                        AIe <= 0;
+                        next_state <= 0; // next state
+                    end
+
+                    4'b0011: begin // SUB
+
+                        // Reset for next instruction
+                        ALUOe <= 0;
+                        AIe <= 0;
+                        next_state <= 0; // next state
+                    end
+
+                    4'b1111: begin // HLT
+                        hlt <= 1; // halt the CPU
+                    end
+                    default: begin // NOP
+                        state <= 0;
+                    end
+                endcase
+            end
+
             default: begin
-                state <= 10; // reset state
-                next_state <= 0; // reset state
+                next_state <= 0; 
             end
 
         endcase
@@ -210,10 +340,10 @@ module controller;
 
     initial begin
         next_state <= 0;
+        ORIe <= 0;
         PCOe <= 0;
         PCIe <= 0;
         PCe <= 0;
-        MAROe <= 0;
         MARIe <= 0;
         RIe <= 0;
         ROe <= 0;
@@ -221,6 +351,10 @@ module controller;
         IROe <= 0;
         AOe <= 0;
         AIe <= 0;
+        BOe <= 0;
+        BIe <= 0;
+        sub <= 0;
+        ALUOe <= 0;
         hlt <= 0;
         reset <= 0;
     end
